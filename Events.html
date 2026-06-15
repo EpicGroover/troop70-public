@@ -137,11 +137,7 @@
       font-size: 13px;
       font-weight: bold;
       text-decoration: none;
-      transition: opacity 0.15s;
-    }
-
-    .event-btn:hover {
-      opacity: 0.85;
+      transition: background 0.15s;
     }
 
     .event-btn-primary {
@@ -149,10 +145,18 @@
       color: #222;
     }
 
+    .event-btn-primary:hover {
+      background: #e6a600;
+    }
+
     .event-btn-secondary {
       background: rgba(255, 255, 255, 0.2);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .event-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.35);
     }
 
     /* ── Recent: compact horizontal rows ───────────────────── */
@@ -171,6 +175,7 @@
     .recent-row:hover {
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
       transform: translateY(-1px);
+      text-decoration: none;
     }
 
     .recent-row-thumb {
@@ -209,18 +214,6 @@
 
     .recent-row-meta i {
       width: 12px;
-      margin-right: 4px;
-    }
-
-    .recent-row-cta {
-      display: inline-block;
-      margin-top: 5px;
-      font-size: 12px;
-      font-weight: bold;
-      color: #0A5F3E;
-    }
-
-    .recent-row-cta i {
       margin-right: 4px;
     }
 
@@ -288,7 +281,6 @@
                 <div><i class="fas fa-calendar-days"></i>June 14, 2026</div>
               </div>
               <div class="event-card-actions">
-                <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45922&Form_ID=5429&Stack=0&Application_ID=669&ID=1807" class="event-btn event-btn-primary" target="_blank" rel="noopener">Sign Up</a>
                 <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45909&Form_ID=160&FK=0&ID=33&Stack=2&Application_ID=669" class="event-btn event-btn-secondary" target="_blank" rel="noopener">Event Chat</a>
               </div>
             </div>
@@ -309,7 +301,7 @@
             <div class="recent-row-body">
               <p class="recent-row-title">Camporee</p>
               <p class="recent-row-meta"><i class="fas fa-location-dot"></i>Camp Comer</p>
-              <span class="recent-row-cta"><i class="fas fa-images"></i>View Photos</span>
+
             </div>
             <div class="recent-row-date">
               <span class="badge-month">Mar</span>
@@ -324,7 +316,7 @@
             <div class="recent-row-body">
               <p class="recent-row-title">Gaming Lock-In</p>
               <p class="recent-row-meta"><i class="fas fa-location-dot"></i>High Point</p>
-              <span class="recent-row-cta"><i class="fas fa-images"></i>View Photos</span>
+
             </div>
             <div class="recent-row-date">
               <span class="badge-month">Feb</span>
@@ -339,7 +331,7 @@
             <div class="recent-row-body">
               <p class="recent-row-title">Service Gaming Campout</p>
               <p class="recent-row-meta"><i class="fas fa-location-dot"></i>Camp Westmoreland</p>
-              <span class="recent-row-cta"><i class="fas fa-images"></i>View Photos</span>
+
             </div>
             <div class="recent-row-date">
               <span class="badge-month">Dec</span>
