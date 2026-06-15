@@ -5,258 +5,261 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Encapsulate all styles within a container class */
-    .events-container {
+    .events-section {
       width: 2000px;
       max-width: 100%;
-      padding: 20px;
       box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f4f4;
+      padding: 28px 32px;
     }
 
-    .events-container .event-sections {
+    .events-cols {
       display: flex;
-      justify-content: space-between;
-      width: 100%;
+      gap: 20px;
+      align-items: flex-start;
     }
 
-    .events-container .upcoming-events-section,
-    .events-container .recent-events-section {
-      width: 50%;
-      padding: 20px;
-      background-color: #0A5F3E;
-      border-radius: 15px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin: 0 10px;
+    .events-col {
+      flex: 1;
+      min-width: 0;
     }
 
-    .events-container .section-title {
+    .events-col-header {
+      background: #0A5F3E;
+      color: #fff;
       text-align: center;
-      font-family: "Lucida Handwriting" !important;
-      font-size: 1.5em;
-      margin-bottom: 20px;
-      color: #FFF;
-    }
-
-    .events-container .album-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      overflow-x: auto;
-      padding: 10px 15px;
-      margin: 0;
-      scroll-snap-type: x mandatory;
-    }
-
-    .events-container .album {
-      background: white;
-      margin: 0 10px;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      flex: 0 0 auto;
-      width: 250px;
-      text-align: center;
-      min-width: 250px;
-      scroll-snap-align: center;
-    }
-
-    .events-container .album img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      image-rendering: -webkit-optimize-contrast;
-      /* For Chrome/Safari */
-      image-rendering: crisp-edges;
-      /* For Firefox */
-      image-rendering: pixelated;
-      /* Fallback for older browsers */
-      display: block;
-      /* Removes unwanted spacing */
-      max-width: 100%;
-      /* Prevents stretching */
-    }
-
-    .events-container .album h2 {
-      margin-top: 10px;
-      font-size: 1em;
-      color: #333;
+      padding: 10px 12px;
+      font-size: 13px;
       font-weight: bold;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border-radius: 8px 8px 0 0;
     }
 
-    .events-container .album p {
-      margin: 5px 0;
-      font-size: 16px;
-      color: #666;
+    .events-col-body {
+      background: #fff;
+      border-radius: 0 0 8px 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     }
 
-    .events-container .album a {
+    /* ── Upcoming: image-forward featured card ─────────────── */
+
+    .event-card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    }
+
+    .event-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
       display: block;
-      margin-top: 10px;
-      color: #007BFF;
+    }
+
+    .event-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.28) 55%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 16px;
+    }
+
+    .event-card-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #0A5F3E;
+      color: #fff;
+      border-radius: 6px;
+      text-align: center;
+      padding: 5px 10px;
+      min-width: 44px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    .event-card-badge .badge-month {
+      display: block;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .event-card-badge .badge-day {
+      display: block;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.1;
+    }
+
+    .event-card-title {
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 0 6px;
+    }
+
+    .event-card-meta {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 13px;
+      margin: 0 0 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .event-card-meta i {
+      width: 14px;
+      margin-right: 5px;
+    }
+
+    .event-card-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .event-btn {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: bold;
       text-decoration: none;
-      font-family: "Arial", sans-serif;
+      transition: opacity 0.15s;
+    }
+
+    .event-btn:hover {
+      opacity: 0.85;
+    }
+
+    .event-btn-primary {
+      background: #FFB800;
+      color: #222;
+    }
+
+    .event-btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    /* ── Recent: compact horizontal rows ───────────────────── */
+
+    .recent-row {
+      display: flex;
+      align-items: stretch;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f8f8f8;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      text-decoration: none;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .recent-row:hover {
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .recent-row-thumb {
+      flex: 0 0 110px;
+      overflow: hidden;
+    }
+
+    .recent-row-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .recent-row-body {
+      flex: 1;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .recent-row-title {
       font-size: 14px;
-      font-weight: normal;
-      font-style: normal;
+      font-weight: bold;
+      color: #222;
+      margin: 0;
     }
 
-    .events-container .album a:hover {
-      text-decoration: underline;
+    .recent-row-meta {
+      font-size: 12px;
+      color: #666;
+      margin: 0;
     }
 
-    /* Responsive Design for Mobile Devices in Portrait Mode */
-    @media only screen and (max-width: 768px) and (orientation: portrait) {
-      .events-container {
-        width: 100%;
-        max-width: none;
-        padding: 10px;
+    .recent-row-meta i {
+      width: 12px;
+      margin-right: 4px;
+    }
+
+    .recent-row-cta {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #0A5F3E;
+    }
+
+    .recent-row-cta i {
+      margin-right: 4px;
+    }
+
+    .recent-row-date {
+      flex: 0 0 auto;
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-left: 1px solid #e8e8e8;
+    }
+
+    .recent-row-date .badge-month {
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #888;
+      letter-spacing: 0.5px;
+    }
+
+    .recent-row-date .badge-day {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0A5F3E;
+      line-height: 1;
+    }
+
+    @media (max-width: 680px) {
+      .events-section {
+        padding: 16px;
       }
 
-      .events-container .event-sections {
+      .events-cols {
         flex-direction: column;
-        width: 100%;
       }
 
-      .events-container .upcoming-events-section,
-      .events-container .recent-events-section {
-        width: 100%;
-        margin: 0 0 20px 0;
-        padding: 15px;
-      }
-
-      .events-container .section-title {
-        font-size: 1.2em;
-        text-align: center;
-      }
-
-      .events-container .album-container {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding: 10px 15px;
-        margin: 0;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        position: relative;
-      }
-
-      .events-container .album-container::before,
-      .events-container .album-container::after {
-        content: '';
-        width: 15px;
-        flex: 0 0 auto;
-      }
-
-      .events-container .album {
-        width: 200px;
-        margin: 0 5px;
-        padding: 10px;
-        min-width: 200px;
-        scroll-snap-align: start;
-      }
-
-      .events-container .album img {
-        height: 140px;
-      }
-
-      .events-container .album h2 {
-        font-size: 0.9em;
-      }
-
-      .events-container .album p {
-        font-size: 0.7em;
-      }
-
-      .events-container .album a {
-        font-size: 0.7em;
-      }
-    }
-
-    /* Responsive Design for Mobile Devices in Landscape Mode */
-    @media only screen and (max-width: 1024px) and (orientation: landscape) {
-      .events-container {
-        width: 100%;
-        max-width: none;
-        padding: 10px;
-      }
-
-      .events-container .event-sections {
-        flex-direction: row;
-        width: 100%;
-      }
-
-      .events-container .upcoming-events-section,
-      .events-container .recent-events-section {
-        width: 50%;
-        margin: 0 10px;
-        padding: 15px;
-      }
-
-      .events-container .section-title {
-        font-size: 1.2em;
-        text-align: center;
-      }
-
-      .events-container .album-container {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding: 10px 15px;
-        margin: 0;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        position: relative;
-      }
-
-      .events-container .album-container::before,
-      .events-container .album-container::after {
-        content: '';
-        width: 15px;
-        flex: 0 0 auto;
-      }
-
-      .events-container .album {
-        width: 200px;
-        margin: 0 5px;
-        padding: 10px;
-        min-width: 200px;
-        scroll-snap-align: start;
-      }
-
-      .events-container .album img {
-        height: 140px;
-      }
-
-      .events-container .album h2 {
-        font-size: 0.9em;
-      }
-
-      .events-container .album p {
-        font-size: 0.7em;
-      }
-
-      .events-container .album a {
-        font-size: 0.7em;
-      }
-    }
-
-    /* Ensure Desktop Mode Works Properly */
-    @media only screen and (min-width: 769px) {
-      .events-container .album-container {
-        justify-content: center;
-        padding: 10px 15px;
-        position: relative;
-      }
-
-      .events-container .album-container::before,
-      .events-container .album-container::after {
-        content: '';
-        width: 15px;
-        flex: 0 0 auto;
-      }
-
-      .events-container .album {
-        scroll-snap-align: start;
+      .event-card-img {
+        height: 200px;
       }
     }
   </style>
@@ -264,55 +267,89 @@
 
 <body>
 
-  <div class="events-container">
-    <div class="event-sections">
-      <!-- Upcoming Events Section -->
-      <div class="upcoming-events-section">
-        <h2 class="section-title">Upcoming Campouts</h2>
-        <div class="album-container">
+  <div class="events-section">
+    <div class="events-cols">
 
-          <!-- Upcoming Event 2 -->
+      <!-- ── Upcoming Campouts ─────────────────────────────── -->
+      <div class="events-col">
+        <div class="events-col-header">Upcoming Campouts</div>
+        <div class="events-col-body">
 
-          <!-- Upcoming Event 3 -->
-          <div class="album">
-            <img class="img-responsive" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/Davy_Crockett_20262816581965628394.png">
-            <h2>Summer Camp</h2>
-            <p>Camp Davy Crockett<br>6/14/2026</p>
-            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45922&Form_ID=5429&Stack=0&Application_ID=669&ID=1807">Sign Up</a>
-            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45909&Form_ID=160&FK=0&ID=33&Stack=2&Application_ID=669">Event Chat</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Recent Events Section -->
-      <div class="recent-events-section">
-        <h2 class="section-title">Recent Campouts</h2>
-        <div class="album-container">
-          <!-- Recent Event 2 -->
-          <div class="album">
-            <img class="img-responsive" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202603_Camporee_20266721211261022564.jpg" alt="Hunger Cames Tune-Up Thumbnail">
-            <h2>Camporee</h2>
-            <p>Camp Comer<br>3/27/2026</p>
-            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1770&Stack=2">View Album</a>
-          </div>
-
-          <!-- Recent Event 3 -->
-          <div class="album">
-            <img class="img-responsive" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202602_HighPoint_20266721185888639454.jpg">
-            <h2>Gaming Lock-In</h2>
-            <p>High Point<br>2/06/2026</p>
-            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1757&Stack=2">View Album</a>
-          </div>
-          <!-- Recent Event 1 -->
-          <div class="album">
-            <img class="img-responsive" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202512_-_Service_Gaming_Campout_2026141593770317804.webp" alt="Hunger Cames Tune-Up Thumbnail">
-            <h2>Service Gaming Campout</h2>
-            <p>Camp Westmoreland<br>12/19/2025</p>
-            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1747&Stack=2">View Album</a>
+          <div class="event-card">
+            <img class="event-card-img" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/Davy_Crockett_20262816581965628394.png" alt="Summer Camp">
+            <div class="event-card-badge">
+              <span class="badge-month">Jun</span>
+              <span class="badge-day">14</span>
+            </div>
+            <div class="event-card-overlay">
+              <div class="event-card-title">Summer Camp</div>
+              <div class="event-card-meta">
+                <div><i class="fas fa-location-dot"></i>Camp Davy Crockett</div>
+                <div><i class="fas fa-calendar-days"></i>June 14, 2026</div>
+              </div>
+              <div class="event-card-actions">
+                <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45922&Form_ID=5429&Stack=0&Application_ID=669&ID=1807" class="event-btn event-btn-primary">Sign Up</a>
+                <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45909&Form_ID=160&FK=0&ID=33&Stack=2&Application_ID=669" class="event-btn event-btn-secondary">Event Chat</a>
+              </div>
+            </div>
           </div>
 
         </div>
       </div>
+
+      <!-- ── Recent Campouts ──────────────────────────────── -->
+      <div class="events-col">
+        <div class="events-col-header">Recent Campouts</div>
+        <div class="events-col-body">
+
+          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1770&Stack=2" class="recent-row">
+            <div class="recent-row-thumb">
+              <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202603_Camporee_20266721211261022564.jpg" alt="Camporee">
+            </div>
+            <div class="recent-row-body">
+              <p class="recent-row-title">Camporee</p>
+              <p class="recent-row-meta"><i class="fas fa-location-dot"></i>Camp Comer</p>
+              <span class="recent-row-cta"><i class="fas fa-images"></i>View Photos</span>
+            </div>
+            <div class="recent-row-date">
+              <span class="badge-month">Mar</span>
+              <span class="badge-day">27</span>
+            </div>
+          </a>
+
+          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1757&Stack=2" class="recent-row">
+            <div class="recent-row-thumb">
+              <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202602_HighPoint_20266721185888639454.jpg" alt="Gaming Lock-In">
+            </div>
+            <div class="recent-row-body">
+              <p class="recent-row-title">Gaming Lock-In</p>
+              <p class="recent-row-meta"><i class="fas fa-location-dot"></i>High Point</p>
+              <span class="recent-row-cta"><i class="fas fa-images"></i>View Photos</span>
+            </div>
+            <div class="recent-row-date">
+              <span class="badge-month">Feb</span>
+              <span class="badge-day">6</span>
+            </div>
+          </a>
+
+          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1747&Stack=2" class="recent-row">
+            <div class="recent-row-thumb">
+              <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202512_-_Service_Gaming_Campout_2026141593770317804.webp" alt="Service Gaming Campout">
+            </div>
+            <div class="recent-row-body">
+              <p class="recent-row-title">Service Gaming Campout</p>
+              <p class="recent-row-meta"><i class="fas fa-location-dot"></i>Camp Westmoreland</p>
+              <span class="recent-row-cta"><i class="fas fa-images"></i>View Photos</span>
+            </div>
+            <div class="recent-row-date">
+              <span class="badge-month">Dec</span>
+              <span class="badge-day">19</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
     </div>
   </div>
 
