@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Inside Image</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Header styling with overlay */
+    .header-container {
+      position: relative;
+      height: 650px;
+      background-color: #e6f2ff;
+      margin-bottom: 20px;
+      text-align: center;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      width: 1800px !important;
+    }
+
+    .header-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    /* Title styling */
+    .header-title {
+      background: linear-gradient(to right, #FF0000, #FFFFFF, #0000FF);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      z-index: 2;
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+      font-size: 40px;
+      font-family: "Lucida Handwriting" !important;
+    }
+
+    /* Table positioning on image */
+    .table-container {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 95%;
+      max-width: 2000px;
+      z-index: 2;
+    }
+
+    /* Table styling */
+    .table-layout {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .table-layout td {
+      padding: 8px 6px;
+      border: 1px solid rgba(221, 221, 221, 0.8);
+      text-align: center;
+      width: 14.285%;
+      min-width: 0;
+      vertical-align: top;
+      height: 125px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .table-layout h2 {
+      margin: 0 0 6px 0;
+      font-size: 1.15em;
+      color: #222;
+      line-height: 1.1;
+    }
+
+    .table-layout p {
+      margin: 2px 0;
+      font-size: 11px;
+      color: #222;
+      font-weight: bold;
+      line-height: 1.15;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header-container">
+    <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/bald-eagles-wallpaper_opaque_202521614295623060994.jpg" alt="Header Image" class="img-responsive header-image">
+    <h1 class="header-title"><br>TROOP 70 EAGLES</h1>
+
+    <div class="table-container">
+      <table class="table-layout">
+        <tr>
+          <td>
+            <h2>2004</h2>
+            <p>Robert Jones</p>
+            <p>Andrew Webber</p>
+          </td>
+          <td>
+            <h2>2005</h2>
+            <p>Eric McDonald</p>
+          </td>
+          <td>
+            <h2>2006</h2>
+            <p>Benjamin Hall</p>
+            <p>William Hinson</p>
+            <p>David Jones</p>
+          </td>
+          <td>
+            <h2>2007</h2>
+            <p>Adam Kim</p>
+            <p>Nicholas Cerny</p>
+            <p>Seth Taylor</p>
+            <p>Jonathan Dolloff</p>
+            <p>Christopher Wells</p>
+          </td>
+          <td>
+            <h2>2009</h2>
+            <p>Douglas Cox</p>
+          </td>
+          <td>
+            <h2>2010</h2>
+            <p>Allan Morgan</p>
+            <p>Tyler Belk</p>
+            <p>Adam Novoa</p>
+          </td>
+          <td>
+            <h2>2011</h2>
+            <p>Daniel Lindsey</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <h2>2012</h2>
+            <p>Jacob Dean</p>
+            <p>Thomas Dunn</p>
+            <p>Andrew Toomey</p>
+          </td>
+          <td>
+            <h2>2013</h2>
+            <p>Forest Dewberry</p>
+            <p>Victor Englert</p>
+            <p>Evan Novoa</p>
+            <p>Thaddeus Young</p>
+          </td>
+          <td>
+            <h2>2014</h2>
+            <p>Derek Roberts</p>
+            <p>John Ruble</p>
+          </td>
+          <td>
+            <h2>2015</h2>
+            <p>Logan Dolloff</p>
+            <p>Eduardo Quinn</p>
+            <p>Dylan Bishop</p>
+            <p>Davis Toomey</p>
+            <p>Caleb Jones</p>
+          </td>
+          <td>
+            <h2>2016</h2>
+            <p>Drake Kobler</p>
+            <p>Wyatt Dunn</p>
+            <p>Riley Nelson</p>
+            <p>Sritanuj Alapati</p>
+          </td>
+          <td>
+            <h2>2017</h2>
+            <p>John Hedayat</p>
+            <p>Peter McDonald</p>
+            <p>Evan Dolloff</p>
+            <p>Micah Mayers</p>
+            <p>Jack Henry Parikh</p>
+          </td>
+          <td>
+            <h2>2018</h2>
+            <p>Chase Howell</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <h2>2019</h2>
+            <p>Benjamin Steber</p>
+            <p>Will McKenzie</p>
+            <p>Brandon Cianfaglione</p>
+            <p>Matthew Huttula</p>
+          </td>
+          <td>
+            <h2>2020</h2>
+            <p>Benjamin Hall</p>
+            <p>Andrew Allen</p>
+            <p>Quinnlan Culbertson</p>
+          </td>
+          <td>
+            <h2>2021</h2>
+            <p>Padraig Brainerd</p>
+            <p>James Stott</p>
+            <p>Andrew Pruett</p>
+            <p>Samuel Boyd</p>
+            <p>Harrison Dunn</p>
+            <p>Matthew Jensen</p>
+          </td>
+          <td>
+            <h2>2022</h2>
+            <p>Christopher Berkey</p>
+            <p>Gabriel Watson</p>
+          </td>
+          <td>
+            <h2>2023</h2>
+            <p>Julian Stephens</p>
+            <p>Jacob Hawkins</p>
+            <p>Dylan Harr</p>
+            <p>Martin McDonald</p>
+            <p>Samuel Hall</p>
+          </td>
+          <td>
+            <h2>2024</h2>
+            <p>Harry McKenzie</p>
+            <p>Zach McKenzie</p>
+            <p>Seth Bredbenner</p>
+          </td>
+          <td>
+            <h2>2025</h2>
+            <p>Trevor Cianfaglione</p>
+            <p>Joseph Steber</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <h2>2026</h2>
+            <p>Thomas Burkey</p>
+            <p>Sam Pitcher</p>           
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>

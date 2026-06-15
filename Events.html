@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+  <style>
+    /* Encapsulate all styles within a container class */
+    .events-container {
+      width: 2000px;
+      max-width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .events-container .event-sections {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .events-container .upcoming-events-section,
+    .events-container .recent-events-section {
+      width: 50%;
+      padding: 20px;
+      background-color: #0A5F3E;
+      border-radius: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 0 10px;
+    }
+
+    .events-container .section-title {
+      text-align: center;
+      font-family: "Lucida Handwriting" !important;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #FFF;
+    }
+
+    .events-container .album-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      overflow-x: auto;
+      padding: 10px 15px;
+      margin: 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .events-container .album {
+      background: white;
+      margin: 0 10px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex: 0 0 auto;
+      width: 250px;
+      text-align: center;
+      min-width: 250px;
+      scroll-snap-align: center;
+    }
+
+    .events-container .album img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      image-rendering: -webkit-optimize-contrast;
+      /* For Chrome/Safari */
+      image-rendering: crisp-edges;
+      /* For Firefox */
+      image-rendering: pixelated;
+      /* Fallback for older browsers */
+      display: block;
+      /* Removes unwanted spacing */
+      max-width: 100%;
+      /* Prevents stretching */
+    }
+
+    .events-container .album h2 {
+      margin-top: 10px;
+      font-size: 1em;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .events-container .album p {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .events-container .album a {
+      display: block;
+      margin-top: 10px;
+      color: #007BFF;
+      text-decoration: none;
+      font-family: "Arial", sans-serif;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .events-container .album a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design for Mobile Devices in Portrait Mode */
+    @media only screen and (max-width: 768px) and (orientation: portrait) {
+      .events-container {
+        width: 100%;
+        max-width: none;
+        padding: 10px;
+      }
+
+      .events-container .event-sections {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .events-container .upcoming-events-section,
+      .events-container .recent-events-section {
+        width: 100%;
+        margin: 0 0 20px 0;
+        padding: 15px;
+      }
+
+      .events-container .section-title {
+        font-size: 1.2em;
+        text-align: center;
+      }
+
+      .events-container .album-container {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 10px 15px;
+        margin: 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+      }
+
+      .events-container .album-container::before,
+      .events-container .album-container::after {
+        content: '';
+        width: 15px;
+        flex: 0 0 auto;
+      }
+
+      .events-container .album {
+        width: 200px;
+        margin: 0 5px;
+        padding: 10px;
+        min-width: 200px;
+        scroll-snap-align: start;
+      }
+
+      .events-container .album img {
+        height: 140px;
+      }
+
+      .events-container .album h2 {
+        font-size: 0.9em;
+      }
+
+      .events-container .album p {
+        font-size: 0.7em;
+      }
+
+      .events-container .album a {
+        font-size: 0.7em;
+      }
+    }
+
+    /* Responsive Design for Mobile Devices in Landscape Mode */
+    @media only screen and (max-width: 1024px) and (orientation: landscape) {
+      .events-container {
+        width: 100%;
+        max-width: none;
+        padding: 10px;
+      }
+
+      .events-container .event-sections {
+        flex-direction: row;
+        width: 100%;
+      }
+
+      .events-container .upcoming-events-section,
+      .events-container .recent-events-section {
+        width: 50%;
+        margin: 0 10px;
+        padding: 15px;
+      }
+
+      .events-container .section-title {
+        font-size: 1.2em;
+        text-align: center;
+      }
+
+      .events-container .album-container {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 10px 15px;
+        margin: 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+      }
+
+      .events-container .album-container::before,
+      .events-container .album-container::after {
+        content: '';
+        width: 15px;
+        flex: 0 0 auto;
+      }
+
+      .events-container .album {
+        width: 200px;
+        margin: 0 5px;
+        padding: 10px;
+        min-width: 200px;
+        scroll-snap-align: start;
+      }
+
+      .events-container .album img {
+        height: 140px;
+      }
+
+      .events-container .album h2 {
+        font-size: 0.9em;
+      }
+
+      .events-container .album p {
+        font-size: 0.7em;
+      }
+
+      .events-container .album a {
+        font-size: 0.7em;
+      }
+    }
+
+    /* Ensure Desktop Mode Works Properly */
+    @media only screen and (min-width: 769px) {
+      .events-container .album-container {
+        justify-content: center;
+        padding: 10px 15px;
+        position: relative;
+      }
+
+      .events-container .album-container::before,
+      .events-container .album-container::after {
+        content: '';
+        width: 15px;
+        flex: 0 0 auto;
+      }
+
+      .events-container .album {
+        scroll-snap-align: start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="events-container">
+    <div class="event-sections">
+      <!-- Upcoming Events Section -->
+      <div class="upcoming-events-section">
+        <h2 class="section-title">Upcoming Campouts</h2>
+        <div class="album-container">
+
+          <!-- Upcoming Event 2 -->
+
+          <!-- Upcoming Event 3 -->
+          <div class="album">
+            <img class="img-responsive" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/Davy_Crockett_20262816581965628394.png">
+            <h2>Summer Camp</h2>
+            <p>Camp Davy Crockett<br>6/14/2026</p>
+            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45922&Form_ID=5429&Stack=0&Application_ID=669&ID=1807">Sign Up</a>
+            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45909&Form_ID=160&FK=0&ID=33&Stack=2&Application_ID=669">Event Chat</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Events Section -->
+      <div class="recent-events-section">
+        <h2 class="section-title">Recent Campouts</h2>
+        <div class="album-container">
+          <!-- Recent Event 2 -->
+          <div class="album">
+            <img class="img-responsive" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202603_Camporee_20266721211261022564.jpg" alt="Hunger Cames Tune-Up Thumbnail">
+            <h2>Camporee</h2>
+            <p>Camp Comer<br>3/27/2026</p>
+            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1770&Stack=2">View Album</a>
+          </div>
+
+          <!-- Recent Event 3 -->
+          <div class="album">
+            <img class="img-responsive" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202602_HighPoint_20266721185888639454.jpg">
+            <h2>Gaming Lock-In</h2>
+            <p>High Point<br>2/06/2026</p>
+            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1757&Stack=2">View Album</a>
+          </div>
+          <!-- Recent Event 1 -->
+          <div class="album">
+            <img class="img-responsive" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202512_-_Service_Gaming_Campout_2026141593770317804.webp" alt="Hunger Cames Tune-Up Thumbnail">
+            <h2>Service Gaming Campout</h2>
+            <p>Camp Westmoreland<br>12/19/2025</p>
+            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1747&Stack=2">View Album</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-language" content="en-us">
+  <title>Troop 70 Huntsville, AL</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:n,b,bi">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      padding-top: 4.5rem;
+    }
+
+    .cd-section {
+      background-size: 1920px 530px; /* Native image size for desktop */
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: scroll; /* Avoid fixed to prevent zooming */
+      width: 100%;
+      max-width: 1920px; /* Cap at image width */
+      height: 530px; /* Match image height */
+      margin: 0 auto; /* Center the section */
+      position: relative;
+    }
+
+    .cd-section {
+      background-image: url("https://raw.githubusercontent.com/EpicGroover/troop70-assets/main/images/20260613%20-%20Troop%20Photo.jpg");
+      text-decoration: none;
+      color: rgb(207, 9, 33);
+      font-size: 80px; /* Adjusted for proportionality */
+      padding-top: 0.5%;
+      text-align: center;
+      display: block;
+    }
+
+    .image-logo2 {
+      width: 130px !important;
+      height: 140px !important;
+      position: absolute;
+      top: 11%;
+      left: 3%;
+      transform: translate(-50%, -50%);
+    }
+
+    .img-responsive {
+      padding-bottom: 0 !important;
+    }
+
+    #banner-image {
+      position: relative;
+      max-width: 100%;
+    }
+
+    /* Tablets (max-width: 1024px) */
+    @media only screen and (max-width: 1024px) {
+      .cd-section {
+        background-size: 100% auto; /* Scale to viewport width */
+        height: 400px; /* Slightly smaller for tablets */
+        background-attachment: scroll;
+      }
+
+      .cd-section {
+        font-size: 60px;
+        padding-top: 5%;
+      }
+
+      .image-logo2 {
+        width: 100px !important;
+        height: 110px !important;
+        top: 10%;
+        left: 10%;
+      }
+    }
+
+    /* Mobile Devices (max-width: 768px) */
+    @media only screen and (max-width: 768px) {
+      .cd-section {
+        background-size: 100% auto;
+        height: 265px; /* Half the height for mobile */
+        background-attachment: scroll;
+      }
+
+      .cd-section {
+        font-size: 40px;
+        padding-top: 5%;
+      }
+
+      .image-logo2 {
+        width: 80px !important;
+        height: 90px !important;
+        top: 10%;
+        left: 10%;
+      }
+    }
+
+    /* Portrait orientation */
+    @media (max-width: 768px) and (orientation: portrait) {
+      .cd-section {
+        background-size: 100% auto;
+        height: 265px;
+      }
+
+      .cd-section {
+        font-size: 30px;
+        padding-top: 8%;
+      }
+
+      .image-logo2 {
+        top: 8%;
+        left: 15%;
+      }
+    }
+
+    /* Landscape orientation */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .cd-section {
+        background-size: 100% auto;
+        height: 265px;
+      }
+
+      .cd-section {
+        font-size: 40px;
+        padding-top: 5%;
+      }
+
+      .image-logo2 {
+        top: 10%;
+        left: 10%;
+      }
+    }
+
+    /* Hide elements at smaller breakpoints */
+    @media only screen and (max-width: 1600px) {
+      #image-logo-BSA {
+        display: none !important;
+      }
+    }
+
+    @media only screen and (max-width: 1301px) {
+      #banner-image {
+        padding-top: 7%;
+        font-size: 60px;
+      }
+    }
+
+    @media only screen and (max-width: 1024px) {
+      #banner-image {
+        font-size: 0px;
+      }
+    }
+
+    @media only screen and (max-width: 381px) {
+      #link-bar-container {
+        display: none;
+      }
+
+      #banner-image {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cd-section" id="banner-image">
+    <img alt="" class="img-responsive image-logo2" id="image-logo-new" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/troop70_logo_small_white_v2_202521610514376959004.png" />
+  </div>
+</body>
+
+</html>

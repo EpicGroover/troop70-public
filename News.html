@@ -1,0 +1,353 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    .news-section {
+      --news-card-height: 400px;
+      width: 2000px;
+      max-width: 100%;
+      box-sizing: border-box;
+      background-color: #0A5F3E;
+      padding: 32px 48px;
+      font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    }
+
+    .news-section h1 {
+      color: #fff;
+      font-weight: normal;
+      font-size: 2.2em;
+      text-align: center;
+      margin: 0 0 28px;
+    }
+
+    .news-slide {
+      display: none;
+      align-items: center;
+      gap: 40px;
+      height: var(--news-card-height);
+    }
+
+    .news-slide.active {
+      display: flex;
+    }
+
+    .news-slide-image {
+      flex: 0 0 420px;
+      text-align: center;
+    }
+
+    .news-slide-image img {
+      max-width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .news-slide-text {
+      flex: 1;
+      color: #fff;
+      min-height: 0;
+      max-height: var(--news-card-height);
+      overflow-y: auto;
+    }
+
+    .news-slide-text .slide-title {
+      font-size: 1.6em;
+      font-weight: 700;
+      text-decoration: underline;
+      letter-spacing: 0.02em;
+      margin: 0 0 16px;
+    }
+
+    .news-slide-text p {
+      font-size: 16px;
+      line-height: 1.85;
+      letter-spacing: 0.015em;
+      margin: 0 0 12px;
+    }
+
+    .news-slide-text ul {
+      margin: 0 0 12px;
+      padding-left: 22px;
+    }
+
+    .news-slide-text li {
+      font-size: 16px;
+      line-height: 1.85;
+      letter-spacing: 0.015em;
+      margin-bottom: 6px;
+    }
+
+    .news-slide.alert-slide {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .alert-slide-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+
+    .alert-slide-header img {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+    }
+
+    .alert-slide-header .slide-title {
+      margin: 0;
+    }
+
+    .alert-slide-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      width: 100%;
+    }
+
+    .alert-col p:first-child {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+
+    .alert-col-meta {
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    .alert-col-meta div {
+      margin-bottom: 4px;
+    }
+
+    .alert-col-meta i {
+      width: 16px;
+      margin-right: 7px;
+      text-align: center;
+    }
+
+    .news-slide-text a {
+      color: #fff;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .news-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .news-nav-btn {
+      cursor: pointer;
+      color: #fff;
+      font-size: 20px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.2s;
+      user-select: none;
+    }
+
+    .news-nav-btn:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .news-dot {
+      cursor: pointer;
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .news-dot.active,
+    .news-dot:hover {
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .news-section {
+        padding: 20px 16px;
+      }
+
+      .news-section h1 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+      }
+
+      .news-slide {
+        height: auto;
+      }
+
+      .news-slide.active {
+        flex-direction: column;
+      }
+
+      .news-slide-text {
+        max-height: none;
+      }
+
+      .news-slide-image {
+        flex: none;
+        width: 100%;
+      }
+
+      .news-slide-image img {
+        max-height: 240px;
+        max-width: 280px;
+      }
+
+      .news-slide-text .slide-title {
+        font-size: 1.2em;
+        text-align: center;
+      }
+
+      .news-slide-text p,
+      .news-slide-text li {
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .alert-slide-columns {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="news-section">
+    <h1>Latest News as of 6/14/26</h1>
+
+    <!--WEBMASTER START: SLIDE MODIFICATION-->
+
+    <!--SLIDE START-->
+    <div class="news-slide alert-slide">
+      <div class="news-slide-text" style="width:100%">
+        <div class="alert-slide-header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Circle-icons-megaphone.svg" alt="Announcement">
+          <p class="slide-title">Last-Minute Camp Updates!</p>
+        </div>
+        <div class="alert-slide-columns">
+          <div class="alert-col">
+            <p><strong>Packing &amp; Load-Up</strong></p>
+            <div class="alert-col-meta">
+              <div><i class="fas fa-clock"></i>4pm, Saturday June 13</div>
+              <div><i class="fas fa-location-dot"></i>Church parking lot</div>
+              <div><i class="fas fa-shirt"></i>Class A/Field uniform &mdash; <strong><u>for pre-camp photo, even if not attending camp</u></strong></div>
+            </div>
+            <ul>
+              <li>Bring your camp chest/footlocker or bags to be packed in trailer</li>
+              <li>You will learn what car you're in</li>
+              <li>Let Mrs. Polsgrove, our Safety Coordinator, know about your allergies and medicine instructions for the week</li>
+              <li>Please <strong>do not leave</strong> without checking out with Mr. Maleski</li>
+            </ul>
+          </div>
+          <div class="alert-col">
+            <p><strong>Departure Morning</strong></p>
+            <div class="alert-col-meta">
+              <div><i class="fas fa-clock"></i><strong><u>NEW TIME</u></strong> &mdash; Arrive by 7 AM, Sunday June 14</div>
+              <div><i class="fas fa-location-dot"></i>Downtown Library &mdash; 915 Monroe St SW, Huntsville, AL 35801</div>
+              <div><i class="fas fa-shirt"></i>Class A &mdash; we travel in our uniforms</div>
+              <div><i class="fas fa-flag-checkered"></i><strong>Departing at 7:30 AM PROMPTLY</strong></div>
+            </div>
+            <ul>
+              <li>Bring a snack and a drink</li>
+              <li>Bring lunch or money for lunch</li>
+              <li><u>Don't forget your scout handbook!</u></li>
+              <li>Give Mr. Maleski your medications</li>
+              <li>Drivers please do not leave without informing Mr. Randle</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--SLIDE END-->
+
+    <!--SLIDE START-->
+    <div class="news-slide">
+      <div class="news-slide-image">
+        <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/thomas_b_eagle_20266715553446280814.jpg" alt="Thomas Eagle Scout">
+      </div>
+      <div class="news-slide-text">
+        <p class="slide-title">Thomas achieves Eagle!</p>
+        <p>Congratulations to Thomas on achieving the rank of Eagle Scout — the highest honor in Scouting. This remarkable achievement is the result of years of dedication, hard work, and a steadfast commitment to the values of the Scout Oath and Law. We are incredibly proud of everything he has accomplished, and we have no doubt that the lessons, skills, and values he has developed through Scouting will serve him well throughout his entire life.</p>
+        <p>Once an Eagle, always an Eagle — congratulations, Thomas!</p>
+      </div>
+    </div>
+    <!--SLIDE END-->
+
+    <!--SLIDE START-->
+    <div class="news-slide">
+      <div class="news-slide-image">
+        <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/Soaring_High_202621610302767011234.png" alt="Soaring Higher">
+      </div>
+      <div class="news-slide-text">
+        <p class="slide-title">Soaring Higher!</p>
+        <p>Last year, Scouting America witnessed the end of a tradition with the termination of Journey to Excellence. The Scouters in the Talakto District voiced their frustration with this decision, and the District leadership developed a new way to measure the health of our units in the district.</p>
+        <p>Enter Soaring Higher!</p>
+        <p>"Soaring Higher!" is the new tool of measurement for Units to plan their annual activities. There is a three-tiered system of awards: the Red Feather (lowest level), White Feather (middle level), and Blue Feather (top level). When a unit succeeds in achieving one of these levels, it will be awarded a patch with the level feather on it.</p>
+        <p>Designed to help every unit to continue on the journey of excellence, with this new tool of measurement, units are given the opportunity to be Soaring Higher!</p>
+      </div>
+    </div>
+    <!--SLIDE END-->
+
+    <!--WEBMASTER END: SLIDE MODIFICATION-->
+
+    <div class="news-nav">
+      <span class="news-nav-btn" onclick="plusSlides(-1)"><i class="fas fa-chevron-left"></i></span>
+      <!--WEBMASTER: add or remove one dot per slide-->
+      <span class="news-dot" onclick="currentSlide(1)"></span>
+      <span class="news-dot" onclick="currentSlide(2)"></span>
+      <span class="news-dot" onclick="currentSlide(3)"></span>
+      <!--WEBMASTER END-->
+      <span class="news-nav-btn" onclick="plusSlides(1)"><i class="fas fa-chevron-right"></i></span>
+    </div>
+  </div>
+
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var slides = document.querySelectorAll(".news-slide");
+      var dots = document.querySelectorAll(".news-dot");
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+      slides.forEach(function(s) { s.classList.remove("active"); });
+      dots.forEach(function(d) { d.classList.remove("active"); });
+      slides[slideIndex - 1].classList.add("active");
+      dots[slideIndex - 1].classList.add("active");
+    }
+  </script>
+
+</body>
+
+</html>
+```

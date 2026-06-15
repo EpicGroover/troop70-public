@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Common Resources</title>
+  <style>
+    .resources-section {
+      width: 2000px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 28px 32px;
+      box-sizing: border-box;
+      background-color: #f5f5f5;
+    }
+
+    .resource-categories {
+      display: flex;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .resource-category {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .resource-category-header {
+      background: #0A5F3E;
+      color: #fff;
+      text-align: center;
+      padding: 10px 8px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .resource-category-grid {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      background: #fff;
+      flex: 1;
+      align-content: start;
+    }
+
+    .resource-category-grid.cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .resource-category-grid.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .resource-card {
+      position: relative;
+      display: block;
+      text-decoration: none;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f8f8f8;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .resource-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+      transform: translateY(-2px);
+    }
+
+    .resource-card img {
+      width: 100%;
+      height: 100px;
+      object-fit: contain;
+      display: block;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .resource-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      padding: 7px 6px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.2;
+      transition: background 0.2s;
+    }
+
+    .resource-card:hover .resource-label {
+      background: rgba(0, 0, 0, 0.75);
+    }
+
+    @media (max-width: 900px) {
+      .resources-section {
+        padding: 20px;
+      }
+
+      .resource-categories {
+        flex-wrap: wrap;
+      }
+
+      .resource-category {
+        flex: 1 1 calc(50% - 8px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .resources-section > h2 {
+        font-size: 1.5em;
+      }
+
+      .resource-category {
+        flex: 1 1 100%;
+      }
+
+      .resource-category-grid.cols-2 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .resource-card img {
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="resources-section">
+    <div class="resource-categories">
+
+      <!-- MY SCOUTING -->
+      <div class="resource-category">
+        <div class="resource-category-header">My Scouting</div>
+        <div class="resource-category-grid cols-2">
+
+          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45902&Stack=1&Application_ID=669" class="resource-card">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/id-card-color-icon.png" alt="My Profile">
+            <span class="resource-label">My Profile</span>
+          </a>
+
+          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=57973&Form_ID=220&Stack=2&Application_ID=669" class="resource-card">
+            <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/ranks_20252179545335761064.png" alt="My Rank">
+            <span class="resource-label">My Rank</span>
+          </a>
+
+          <!-- FLAG: external image (Pexels free license, photo by Bryce Carithers) — upload to blob storage -->
+          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=57973&Form_ID=231&Stack=2&Application_ID=669" class="resource-card">
+            <img src="https://images.pexels.com/photos/8913130/pexels-photo-8913130.jpeg?auto=compress&cs=tinysrgb&w=400" alt="My Merit Badges">
+            <span class="resource-label">My Merit Badges</span>
+          </a>
+
+          <a href="https://www.troopwebhost.org/FormList.aspx?Menu_Item_ID=61533&Stack=0&Application_ID=669" class="resource-card">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/education-school/diary-journal-color-icon.png" alt="Merit Badge Resources">
+            <span class="resource-label">Merit Badge Resources</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- EVENTS -->
+      <div class="resource-category">
+        <div class="resource-category-header">Events</div>
+        <div class="resource-category-grid cols-3">
+
+          <!-- FLAG: external image (Twemoji CC-BY 4.0) — upload to blob storage -->
+          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=57973&Form_ID=7790&Stack=2&Application_ID=669" class="resource-card">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4cb.svg" alt="Quick Event Sign Up">
+            <span class="resource-label">Quick Sign Up</span>
+          </a>
+
+          <a href="https://www.troopwebhost.org/FormList.aspx?Menu_Item_ID=45922&Stack=1&Application_ID=669" class="resource-card">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/time-and-date/calendar-color-icon.png" alt="Calendar">
+            <span class="resource-label">Calendar</span>
+          </a>
+
+          <!-- FLAG: external image (Twemoji CC-BY 4.0) — upload to blob storage -->
+          <a href="https://www.troopwebhost.org/FormList.aspx?Menu_Item_ID=45936&Stack=1&Application_ID=669" class="resource-card">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4f7.svg" alt="Photo Gallery">
+            <span class="resource-label">Photo Gallery</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- COMMUNICATION -->
+      <div class="resource-category">
+        <div class="resource-category-header">Communication</div>
+        <div class="resource-category-grid cols-3">
+
+          <!-- FLAG: external image (Twemoji CC-BY 4.0) — upload to blob storage -->
+          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45961&Stack=1&Application_ID=669" class="resource-card">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4e4.svg" alt="Send Email">
+            <span class="resource-label">Send Email</span>
+          </a>
+
+          <!-- FLAG: external image (Twemoji CC-BY 4.0) — upload to blob storage -->
+          <a href="https://www.troopwebhost.org/FormList.aspx?Menu_Item_ID=45962&Form_ID=625&ID=0&FK=0&Stack=1&Custom_Form_ID=0&Application_ID=669" class="resource-card">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4e5.svg" alt="My Inbox">
+            <span class="resource-label">My Inbox</span>
+          </a>
+
+          <a href="https://www.troopwebhost.org/FormList.aspx?Menu_Item_ID=45909&Stack=1&Application_ID=669" class="resource-card">
+            <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/chat_2025223959751157484.png" alt="Forum">
+            <span class="resource-label">Forum</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- FINANCE & RECORDS -->
+      <div class="resource-category">
+        <div class="resource-category-header">Finance &amp; Records</div>
+        <div class="resource-category-grid cols-2">
+
+          <a href="https://www.troopwebhost.org/FormList.aspx?Menu_Item_ID=45901&Stack=0&Application_ID=669" class="resource-card">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/credit-card-color-icon.png" alt="Make a Payment">
+            <span class="resource-label">Make a Payment</span>
+          </a>
+
+          <a href="https://www.troopwebhost.org/FormList.aspx?Menu_Item_ID=52777&Stack=0&Application_ID=669" class="resource-card">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/banking-finance/money-notes-receiving-dollar-color-icon.png" alt="Request Reimbursement">
+            <span class="resource-label">Request Reimbursement</span>
+          </a>
+
+          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45900&Stack=0&Application_ID=669" class="resource-card">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/banking-finance/money-bag-dollar-color-icon.png" alt="Account Balance">
+            <span class="resource-label">Account Balance</span>
+          </a>
+
+          <a href="https://www.troopwebhost.org/bsaShowTroopForms.aspx?Menu_Item_ID=45870&Stack=1&Application_ID=669" class="resource-card">
+            <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/Reports_20252180593910846564.png" alt="Documents">
+            <span class="resource-label">Documents</span>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

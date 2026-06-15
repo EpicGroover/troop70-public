@@ -36,12 +36,14 @@
     }
 
     .leaders-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 28px;
     }
 
     .leader-card {
+      width: 150px;
       text-align: center;
     }
 
@@ -78,8 +80,8 @@
         font-size: 1.3em;
       }
 
-      .leaders-cards {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      .leader-card {
+        width: 120px;
       }
 
       .leader-card img {
@@ -89,8 +91,8 @@
     }
 
     @media (max-width: 480px) {
-      .leaders-cards {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      .leader-card {
+        width: 100px;
       }
 
       .leader-card img {

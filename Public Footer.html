@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troop 7070</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* FOOTER CSS START */
+    #footer_image {
+      position: relative;
+      left: 0px;
+      max-width: 100%;
+      /* Limits the width to the full screen */
+    }
+
+    .cd-section {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      /* Force picture size to be really big (limited by max-width 100% under #footer_image) */
+      width: 2000px;
+      /* Restore original desktop width */
+    }
+
+    .footer {
+      background-color: #2c3e50;
+      background-repeat: no-repeat;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background-image: url('https://troopwebhost.blob.core.windows.net/troop70huntsville/forest_banner_202521419175188135584.jpg');
+      /* Replace with your image path */
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-position: bottom;
+      background-attachment: scroll;
+      margin-top: 30px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1000;
+      /* TWH defined width fix with overflow-x: hidden; and max-width*/
+      overflow-x: hidden !important;
+      width: 2000px;
+      /* Restore original desktop width */
+      max-width: 100%;
+      /* Ensure it doesn’t exceed the screen on desktop */
+      transition: none !important;
+    }
+
+    #footer-image {
+      position: relative;
+      left: 0px;
+      /* max-width limits the 2000px to the full screen */
+      max-width: 100%;
+    }
+
+    .footer section {
+      flex: 1;
+      margin: 0 60px;
+      /* Add some margin on both sides for spacing */
+      margin-right: 20px;
+    }
+
+    .footer section:last-child {
+      margin-right: 0;
+    }
+
+    .footer h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      text-decoration: underline;
+      font-weight: bold;
+      text-align: left;
+      font-style: normal;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer ul li {
+      margin-bottom: 5px;
+    }
+
+    .footer li a {
+      display: inline-flex;
+      /* Use flex for better alignment */
+      align-items: center;
+      /* Center items vertically */
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .footer .info {
+      text-align: right;
+    }
+
+    .footer .info a,
+    .footer .info p {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .footer .info img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    .footer li figure {
+      display: inline-block;
+      margin: 0;
+      position: relative;
+      overflow: visible;
+      min-width: 25px;
+      /* Ensure space for image growth */
+      padding-right: 10px;
+      /* Add buffer */
+    }
+
+    .footer li figure img {
+      width: 20px;
+      /* Default width */
+      height: auto;
+      /* Keeps aspect ratio */
+      transition: width 0.3s ease;
+      /* Smooth transition for resizing */
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .footer li figure:hover img {
+      width: 25px;
+      /* Resized width on hover */
+    }
+
+    .footer li figure figcaption {
+      /* Ensure text can wrap if needed and add padding for buffer */
+      white-space: normal;
+      padding-left: 30px;
+      /* Adjust for desired buffer */
+      display: inline;
+      vertical-align: middle;
+    }
+
+    /* Responsive Design for Mobile Devices (max-width: 768px) */
+    @media only screen and (max-width: 768px) {
+      .cd-section {
+        width: 100%;
+        /* Full width on mobile, overriding desktop 2000px */
+      }
+
+      .footer {
+        padding: 10px;
+        /* Reduce padding for mobile */
+        background-size: cover;
+        /* Ensure banner fits mobile screens */
+        background-position: center;
+        /* Center the banner on mobile */
+        flex-direction: column;
+        /* Stack sections vertically on mobile */
+        align-items: center;
+        /* Center align sections */
+        width: 100%;
+        /* Full width on mobile, overriding desktop 2000px */
+        max-width: none;
+        /* Remove max-width restriction on mobile */
+        margin-top: 15px;
+        /* Reduce margin for mobile */
+      }
+
+      #footer-image {
+        max-width: 100%;
+        /* Ensure full width on mobile */
+      }
+
+      .footer section {
+        flex: none;
+        /* Remove flex grow/shrink for stacking */
+        margin: 0 10px 20px 10px;
+        /* Reduce margins and add spacing between sections */
+        width: 100%;
+        /* Full width on mobile */
+      }
+
+      .footer h3 {
+        font-size: 1em;
+        /* Reduce font size for mobile */
+        text-align: center;
+        /* Center headers on mobile */
+      }
+
+      .footer ul li {
+        margin-bottom: 10px;
+        /* Increase spacing between list items */
+      }
+
+      .footer li a {
+        font-size: 0.9em;
+        /* Smaller font for mobile links */
+        justify-content: center;
+        /* Center align links on mobile */
+      }
+
+      .footer li figure {
+        min-width: 20px;
+        /* Reduce minimum width for images on mobile */
+        padding-right: 5px;
+        /* Reduce padding for mobile */
+      }
+
+      .footer li figure img {
+        width: 15px;
+        /* Smaller images on mobile */
+      }
+
+      .footer li figure:hover img {
+        width: 20px;
+        /* Adjust hover size for mobile */
+      }
+
+      .footer li figure figcaption {
+        padding-left: 20px;
+        /* Reduce padding for mobile */
+        font-size: 0.9em;
+        /* Smaller caption text */
+      }
+    }
+
+    /* FOOTER CSS END */
+  </style>
+</head>
+
+<body>
+
+  <!--FOOTER HTML-->
+
+  <div class="footer">
+
+    <section>
+    </section>
+
+    <section>
+      <h3>QUICK LINKS</h3>
+      <ul>
+
+        <li>
+          <figure>
+            <a href="https://www.troopwebhost.org/formCustom.aspx?Menu_Item_ID=47633&Stack=0&Custom_Form_ID=2&Application_ID=669">
+              <img class="img-responsive" src="https://cdn1.iconfinder.com/data/icons/ui-color/512/Untitled-50-512.png" alt="Troop">
+              <figcaption>About our Troop</figcaption>
+          </figure>
+          </a>
+        </li>
+        <li>
+          <figure>
+            <a href="https://www.troopwebhost.org/formCustom.aspx?Menu_Item_ID=47634&Stack=0&Custom_Form_ID=3&Application_ID=669">
+              <img class="img-responsive" src="https://cdn1.iconfinder.com/data/icons/eagle-2/64/Eagle-hawk-bird-animal-animal_kingdom-falcon-13-512.png" alt="Eagles">
+              <figcaption>Our Eagle Scouts</figcaption>
+          </figure>
+          </a>
+        </li>
+        <li>
+          <figure>
+            <a href="https://www.troopwebhost.org/bsaShowTroopForms.aspx?Menu_Item_ID=45870&Stack=1&Application_ID=669">
+              <img class="img-responsive" src="https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-11-512.png" alt="Forms&Docs">
+              <figcaption>Forms & Documents</figcaption>
+          </figure>
+          </a>
+        </li>
+
+      </ul>
+    </section>
+
+    <section>
+      <h3>ORGANIZATIONAL LINKS</h3>
+      <ul>
+        <li>
+          <figure>
+            <a href="https://www.scouting.org/" target="_blank">
+              <img class="img-responsive" src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_030_share_link_friends_send_android_material-256.png" alt="BSA">
+              <figcaption>Boy Scouts of America</figcaption>
+          </figure>
+          </a>
+        </li>
+        <li>
+          <figure>
+            <a href="https://1bsa.org/" target="_blank">
+              <img class="img-responsive" src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_030_share_link_friends_send_android_material-256.png" alt="GAC">
+              <figcaption>Greater Alabama Council</figcaption>
+          </figure>
+          </a>
+        </li>
+        <li>
+          <figure>
+            <a href="https://talakto.org/" target="_blank">
+              <img class="img-responsive" src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_030_share_link_friends_send_android_material-256.png" alt="Talakto">
+              <figcaption>Talakto District</figcaption>
+          </figure>
+          </a>
+        </li>
+        <li>
+          <figure>
+            <a href="https://gac.tentaroo.com/admin2/login" target="_blank">
+              <img class="img-responsive" src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_030_share_link_friends_send_android_material-256.png" alt="Tentaroo">
+              <figcaption>Tentaroo</figcaption>
+          </figure>
+          </a>
+        </li>
+        <li>
+          <figure>
+            <a href="https://my.scouting.org/" target="_blank">
+              <img class="img-responsive" src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_030_share_link_friends_send_android_material-256.png" alt="Training">
+              <figcaption>My.Scouting (Adult Training)</figcaption>
+          </figure>
+          </a>
+        </li>
+        <li>
+          <figure>
+            <a href="https://scoutbook.scouting.org/" target="_blank">
+              <img class="img-responsive" src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_030_share_link_friends_send_android_material-256.png" alt="Scoutbook">
+              <figcaption>Scoutbook</figcaption>
+          </figure>
+          </a>
+        </li>
+        <li>
+          <figure>
+            <a href="https://advancements.scouting.org/login" target="_blank">
+              <img class="img-responsive" src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_030_share_link_friends_send_android_material-256.png" alt="InternetAdvancement">
+              <figcaption>Internet Advancement</figcaption>
+          </figure>
+          </a>
+        </li>
+        <li>
+          <figure>
+            <a href="https://oa-scouting.org/" target="_blank">
+              <img class="img-responsive" src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_030_share_link_friends_send_android_material-256.png" alt="OA">
+              <figcaption>Order of the Arrow</figcaption>
+          </figure>
+          </a>
+        </li>
+        <li>
+          <figure>
+            <a href="https://www.scoutshop.org/" target="_blank">
+              <img class="img-responsive" src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_030_share_link_friends_send_android_material-256.png" alt="Shop">
+              <figcaption>Scout Shop</figcaption>
+          </figure>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+    </section>
+
+  </div>
+
+</body>
+
+</html>
