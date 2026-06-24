@@ -19,12 +19,14 @@
     .events-cols {
       display: flex;
       gap: 20px;
-      align-items: flex-start;
+      align-items: stretch;
     }
 
     .events-col {
       flex: 1;
       min-width: 0;
+      display: flex;
+      flex-direction: column;
     }
 
     .events-col-header {
@@ -47,6 +49,7 @@
       flex-direction: column;
       gap: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      flex: 1;
     }
 
     /* ── Upcoming: image-forward featured card ─────────────── */
@@ -193,7 +196,13 @@
       max-width: 280px;
     }
 
-    /* ── Recent: compact horizontal rows ───────────────────── */
+    /* ── Recent: 2-column grid of horizontal rows ───────────── */
+
+    .recent-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
 
     .recent-row {
       display: flex;
@@ -201,6 +210,7 @@
       border-radius: 8px;
       overflow: hidden;
       background: #f8f8f8;
+      border: 1px solid #ddd;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       text-decoration: none;
       transition: box-shadow 0.2s, transform 0.15s;
@@ -213,7 +223,7 @@
     }
 
     .recent-row-thumb {
-      flex: 0 0 110px;
+      flex: 0 0 80px;
       overflow: hidden;
     }
 
@@ -226,7 +236,7 @@
 
     .recent-row-body {
       flex: 1;
-      padding: 10px 14px;
+      padding: 8px 10px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -234,26 +244,27 @@
     }
 
     .recent-row-title {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: bold;
       color: #222;
       margin: 0;
+      line-height: 1.3;
     }
 
     .recent-row-meta {
-      font-size: 12px;
+      font-size: 11px;
       color: #666;
       margin: 0;
     }
 
     .recent-row-meta i {
-      width: 12px;
-      margin-right: 4px;
+      width: 11px;
+      margin-right: 3px;
     }
 
     .recent-row-date {
       flex: 0 0 auto;
-      padding: 0 16px;
+      padding: 0 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -262,7 +273,7 @@
     }
 
     .recent-row-date .badge-month {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: bold;
       text-transform: uppercase;
       color: #888;
@@ -270,7 +281,7 @@
     }
 
     .recent-row-date .badge-day {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       color: #0A5F3E;
       line-height: 1;
@@ -317,64 +328,65 @@
         <div class="events-col-header">Recent Campouts</div>
         <div class="events-col-body">
 
-          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1821&Stack=2" class="recent-row" target="_top">
-            <div class="recent-row-thumb">
-              <img src="https://raw.githubusercontent.com/EpicGroover/troop70-public/main/images/events/202605_GrimesCanoeTrip.jpg" alt="Grimes Canoe Trip">
-            </div>
-            <div class="recent-row-body">
-              <p class="recent-row-title">Grimes Canoe Trip</p>
-              <p class="recent-row-meta"><i class="fas fa-location-dot"></i>Grimes Ferry</p>
-            </div>
-            <div class="recent-row-date">
-              <span class="badge-month">May</span>
-              <span class="badge-day">15</span>
-            </div>
-          </a>
+          <div class="recent-grid">
 
-          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1770&Stack=2" class="recent-row" target="_top">
-            <div class="recent-row-thumb">
-              <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202603_Camporee_20266721211261022564.jpg" alt="Camporee">
-            </div>
-            <div class="recent-row-body">
-              <p class="recent-row-title">Camporee</p>
-              <p class="recent-row-meta"><i class="fas fa-location-dot"></i>Camp Comer</p>
+            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1821&Stack=2" class="recent-row" target="_top">
+              <div class="recent-row-thumb">
+                <img src="https://raw.githubusercontent.com/EpicGroover/troop70-public/main/images/events/202605_GrimesCanoeTrip.jpg" alt="Grimes Canoe Trip">
+              </div>
+              <div class="recent-row-body">
+                <p class="recent-row-title">Grimes Canoe Trip</p>
+                <p class="recent-row-meta"><i class="fas fa-location-dot"></i>Grimes Canoe Base</p>
+              </div>
+              <div class="recent-row-date">
+                <span class="badge-month">May</span>
+                <span class="badge-day">15</span>
+              </div>
+            </a>
 
-            </div>
-            <div class="recent-row-date">
-              <span class="badge-month">Mar</span>
-              <span class="badge-day">27</span>
-            </div>
-          </a>
+            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1770&Stack=2" class="recent-row" target="_top">
+              <div class="recent-row-thumb">
+                <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202603_Camporee_20266721211261022564.jpg" alt="Camporee">
+              </div>
+              <div class="recent-row-body">
+                <p class="recent-row-title">Camporee</p>
+                <p class="recent-row-meta"><i class="fas fa-location-dot"></i>Camp Comer</p>
+              </div>
+              <div class="recent-row-date">
+                <span class="badge-month">Mar</span>
+                <span class="badge-day">27</span>
+              </div>
+            </a>
 
-          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1757&Stack=2" class="recent-row" target="_top">
-            <div class="recent-row-thumb">
-              <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202602_HighPoint_20266721185888639454.jpg" alt="Gaming Lock-In">
-            </div>
-            <div class="recent-row-body">
-              <p class="recent-row-title">Gaming Lock-In</p>
-              <p class="recent-row-meta"><i class="fas fa-location-dot"></i>High Point</p>
+            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1757&Stack=2" class="recent-row" target="_top">
+              <div class="recent-row-thumb">
+                <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202602_HighPoint_20266721185888639454.jpg" alt="Gaming Lock-In">
+              </div>
+              <div class="recent-row-body">
+                <p class="recent-row-title">Gaming Lock-In</p>
+                <p class="recent-row-meta"><i class="fas fa-location-dot"></i>High Point</p>
+              </div>
+              <div class="recent-row-date">
+                <span class="badge-month">Feb</span>
+                <span class="badge-day">6</span>
+              </div>
+            </a>
 
-            </div>
-            <div class="recent-row-date">
-              <span class="badge-month">Feb</span>
-              <span class="badge-day">6</span>
-            </div>
-          </a>
+            <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1747&Stack=2" class="recent-row" target="_top">
+              <div class="recent-row-thumb">
+                <img src="https://raw.githubusercontent.com/EpicGroover/troop70-public/main/images/events/202512_ServiceGamingCampout.jpg" alt="Service Gaming Campout">
+              </div>
+              <div class="recent-row-body">
+                <p class="recent-row-title">Service Gaming Campout</p>
+                <p class="recent-row-meta"><i class="fas fa-location-dot"></i>Camp Westmoreland</p>
+              </div>
+              <div class="recent-row-date">
+                <span class="badge-month">Dec</span>
+                <span class="badge-day">19</span>
+              </div>
+            </a>
 
-          <a href="https://www.troopwebhost.org/FormDetail.aspx?Menu_Item_ID=45936&Form_ID=182&ID=1747&Stack=2" class="recent-row" target="_top">
-            <div class="recent-row-thumb">
-              <img src="https://troopwebhost.blob.core.windows.net/troop70huntsville/202512_-_Service_Gaming_Campout_2026141593770317804.webp" alt="Service Gaming Campout">
-            </div>
-            <div class="recent-row-body">
-              <p class="recent-row-title">Service Gaming Campout</p>
-              <p class="recent-row-meta"><i class="fas fa-location-dot"></i>Camp Westmoreland</p>
-
-            </div>
-            <div class="recent-row-date">
-              <span class="badge-month">Dec</span>
-              <span class="badge-day">19</span>
-            </div>
-          </a>
+          </div><!-- /.recent-grid -->
 
         </div>
       </div>
