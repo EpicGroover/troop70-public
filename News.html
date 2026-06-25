@@ -328,6 +328,7 @@
       dots.forEach(function(d) { d.classList.remove("active"); });
       slides[slideIndex - 1].classList.add("active");
       dots[slideIndex - 1].classList.add("active");
+      setTimeout(function () { if (window.sendHeight) window.sendHeight(); }, 50);
     }
   </script>
 
@@ -343,6 +344,7 @@
         document.body.style.overflow = 'hidden';
         window.parent.postMessage({ type: 'twh-resize', height: h }, '*');
       }
+      window.sendHeight = sendHeight;
       window.addEventListener('load', function () { setTimeout(sendHeight, 100); });
       window.addEventListener('orientationchange', function () { setTimeout(sendHeight, 400); });
     })();
