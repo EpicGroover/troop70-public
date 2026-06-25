@@ -257,8 +257,16 @@
 
   <script>
     (function () {
+      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.overscrollBehavior = 'none';
+      document.body.style.overflow = 'hidden';
+      document.body.style.overscrollBehavior = 'none';
       function sendHeight() {
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
         var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
         window.parent.postMessage({ type: 'twh-resize', height: h }, '*');
       }
       window.addEventListener('load', function () { setTimeout(sendHeight, 100); });
