@@ -255,6 +255,19 @@
     </div>
   </div>
 
+  <script>
+    (function () {
+      function sendHeight() {
+        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        window.parent.postMessage({ type: 'twh-resize', height: h }, '*');
+      }
+      window.addEventListener('load', sendHeight);
+      window.addEventListener('resize', sendHeight);
+      if (window.ResizeObserver) {
+        new ResizeObserver(sendHeight).observe(document.body);
+      }
+    })();
+  </script>
 </body>
 
 </html>

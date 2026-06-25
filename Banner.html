@@ -169,6 +169,19 @@
   <div class="cd-section" id="banner-image">
     <img alt="" class="img-responsive image-logo2" id="image-logo-new" src="https://troopwebhost.blob.core.windows.net/troop70huntsville/troop70_logo_small_white_v2_202521610514376959004.png" />
   </div>
+  <script>
+    (function () {
+      function sendHeight() {
+        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        window.parent.postMessage({ type: 'twh-resize', height: h }, '*');
+      }
+      window.addEventListener('load', sendHeight);
+      window.addEventListener('resize', sendHeight);
+      if (window.ResizeObserver) {
+        new ResizeObserver(sendHeight).observe(document.body);
+      }
+    })();
+  </script>
 </body>
 
 </html>
