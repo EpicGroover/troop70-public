@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
     .news-section {
       --news-card-height: 400px;
       width: 2000px;
@@ -337,13 +342,9 @@
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       function sendHeight() {
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        document.documentElement.style.height = 'auto';
-        document.body.style.height = 'auto';
-        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
+        var section = document.querySelector('.news-section');
+        if (!section) return;
+        var h = Math.ceil(section.getBoundingClientRect().bottom);
         window.parent.postMessage({ type: 'twh-resize', height: h }, '*');
       }
       window.sendHeight = sendHeight;
