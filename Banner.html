@@ -175,11 +175,8 @@
         var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
         window.parent.postMessage({ type: 'twh-resize', height: h }, '*');
       }
-      window.addEventListener('load', sendHeight);
-      window.addEventListener('resize', sendHeight);
-      if (window.ResizeObserver) {
-        new ResizeObserver(sendHeight).observe(document.body);
-      }
+      window.addEventListener('load', function () { setTimeout(sendHeight, 100); });
+      window.addEventListener('orientationchange', function () { setTimeout(sendHeight, 400); });
     })();
   </script>
 </body>
