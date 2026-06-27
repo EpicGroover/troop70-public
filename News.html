@@ -251,9 +251,10 @@
       </div>
       <div class="news-slide-text">
         <p class="slide-title">Eagle Project: Max's Courtyard Renovation</p>
-        <p>Volunteers needed for <strong>Workday 2A</strong> of Max Pitcher's Eagle Scout project — moving gravel into the church courtyard. Buckets, shovels, and a rake will be provided.</p>
+        <p>Volunteers needed for Max Pitcher's Eagle Scout project — moving gravel from outside through a hallway into the church courtyard. Buckets, shovels, and a rake will be provided.</p>
         <ul>
-          <li><strong>When:</strong> Monday, June 29 · 6:30–8:30 PM</li>
+          <li><strong>Workday 2A:</strong> Monday, June 29 · 6:30–8:30 PM</li>
+          <li><strong>Workday 2B (backup):</strong> Tuesday, June 30 · 6:30–8:30 PM</li>
           <li><strong>Where:</strong> <a href="https://maps.google.com/?q=13550+Chaney+Thompson+Rd+SE,+Huntsville,+AL+35803" target="_top">Good Shepherd Catholic Church, 13550 Chaney Thompson Rd SE</a></li>
           <li><strong>Bring:</strong> Working gloves, water bottle, eye protection</li>
           <li><strong>Service hours:</strong> 2.0</li>
@@ -359,8 +360,10 @@
 
   <script>
     (function () {
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
+      if (window.self !== window.top) {
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+      }
       function sendHeight() {
         var section = document.querySelector('.news-section');
         if (!section) return;

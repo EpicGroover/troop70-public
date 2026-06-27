@@ -139,14 +139,21 @@
 
   <script>
     (function () {
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-      function sendHeight() {
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      var inIframe = window.self !== window.top;
+      if (inIframe) {
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
+      }
+      function sendHeight() {
+        if (inIframe) {
+          document.documentElement.style.overflow = '';
+          document.body.style.overflow = '';
+        }
+        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        if (inIframe) {
+          document.documentElement.style.overflow = 'hidden';
+          document.body.style.overflow = 'hidden';
+        }
         window.parent.postMessage({ type: 'twh-resize', height: h }, '*');
       }
       window.addEventListener('load', function () { setTimeout(sendHeight, 100); });
