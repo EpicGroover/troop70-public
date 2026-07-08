@@ -164,6 +164,7 @@
       border-radius: 6px;
       transition: background 0.2s;
       user-select: none;
+      touch-action: manipulation;
     }
 
     .news-nav-btn:hover {
@@ -178,6 +179,18 @@
       border-radius: 50%;
       display: inline-block;
       transition: background 0.3s;
+      touch-action: manipulation;
+      position: relative;
+    }
+
+    /* Enlarge tap target without changing visual size */
+    .news-dot::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
     }
 
     .news-dot.active,
@@ -231,6 +244,16 @@
       .alert-slide-columns {
         grid-template-columns: 1fr;
         gap: 20px;
+      }
+
+      .news-nav-btn {
+        padding: 12px 20px;
+        font-size: 22px;
+      }
+
+      .news-dot {
+        width: 14px;
+        height: 14px;
       }
     }
   </style>
